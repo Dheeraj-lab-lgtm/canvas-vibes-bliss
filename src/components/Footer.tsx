@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Twitter, Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-16">
@@ -15,7 +19,7 @@ const Footer = () => {
               <span className="font-display font-bold text-xl text-foreground">Saubhagya</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Empowering rural India through sustainable biogas solutions. Converting agricultural waste into wealth for farmers.
+              {t('footerDesc')}
             </p>
             <div className="flex space-x-3">
               <Button size="sm" variant="outline" className="w-10 h-10 p-0">
@@ -32,19 +36,20 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-4 text-foreground">Quick Links</h3>
+            <h3 className="font-display font-semibold text-lg mb-4 text-foreground">{t('quickLinks')}</h3>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-muted-foreground hover:text-primary transition-colors">Home</a></li>
-              <li><a href="#how-it-works" className="text-muted-foreground hover:text-primary transition-colors">How It Works</a></li>
-              <li><a href="#benefits" className="text-muted-foreground hover:text-primary transition-colors">Benefits</a></li>
-              <li><a href="#stories" className="text-muted-foreground hover:text-primary transition-colors">Success Stories</a></li>
-              <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</a></li>
+              <li><Link to="/" className="text-muted-foreground hover:text-primary transition-colors">{t('home')}</Link></li>
+              <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">{t('about')}</Link></li>
+              <li><Link to="/how-it-works" className="text-muted-foreground hover:text-primary transition-colors">{t('howItWorks')}</Link></li>
+              <li><Link to="/benefits" className="text-muted-foreground hover:text-primary transition-colors">{t('benefits')}</Link></li>
+              <li><Link to="/stories" className="text-muted-foreground hover:text-primary transition-colors">{t('stories')}</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">{t('contact')}</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-4 text-foreground">Services</h3>
+            <h3 className="font-display font-semibold text-lg mb-4 text-foreground">{t('services')}</h3>
             <ul className="space-y-3">
               <li><span className="text-muted-foreground">Dung Collection</span></li>
               <li><span className="text-muted-foreground">IoT Verification</span></li>
@@ -56,7 +61,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-4 text-foreground">Contact Us</h3>
+            <h3 className="font-display font-semibold text-lg mb-4 text-foreground">{t('contactUs')}</h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary" />

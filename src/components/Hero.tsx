@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Zap, Leaf } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-farmers.jpg";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="home" className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden">
       {/* Background Image */}
@@ -28,23 +31,23 @@ const Hero = () => {
           {/* Content */}
           <div className="animate-fade-in">
             <h1 className="font-display font-bold text-5xl lg:text-7xl mb-6 text-white leading-tight">
-              From Dung to <span className="text-secondary">Dhan</span>
+              {t('heroTitle').split(' ').slice(0, -1).join(' ')} <span className="text-secondary">{t('heroTitle').split(' ').slice(-1)}</span>
             </h1>
             <p className="text-xl lg:text-2xl mb-4 text-white/90 font-medium">
-              गौशाला से रोज़ी — किसानों के लिए न्यायपूर्ण भुगतान
+              {t('heroSubtitle')}
             </p>
             <p className="text-lg mb-8 text-white/80 max-w-lg">
-              IoT-verified weighments, same-day payouts, local CBG production
+              {t('heroDescription')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-medium group">
                 <Users className="w-5 h-5 mr-2" />
-                Join as Farmer / फार्मर बनें
+                {t('joinFarmer')}
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                Request Pickup / रिक्वेस्ट पिकअप
+                {t('requestPickup')}
               </Button>
             </div>
           </div>
@@ -58,7 +61,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-success">+30%</div>
-                  <div className="text-foreground font-medium">Farmer Income Increase</div>
+                  <div className="text-foreground font-medium">{t('farmerIncomeIncrease')}</div>
                   <div className="text-sm text-muted-foreground">किसान आय वृद्धि</div>
                 </div>
               </div>
@@ -71,7 +74,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-secondary-foreground">&gt;90%</div>
-                  <div className="text-foreground font-medium">CBG Yield Efficiency</div>
+                  <div className="text-foreground font-medium">{t('cbgYieldEfficiency')}</div>
                   <div className="text-sm text-muted-foreground">CBG उत्पादन दक्षता</div>
                 </div>
               </div>
@@ -84,7 +87,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-primary">40%</div>
-                  <div className="text-foreground font-medium">Methane Reduction</div>
+                  <div className="text-foreground font-medium">{t('methaneReduction')}</div>
                   <div className="text-sm text-muted-foreground">मीथेन कमी</div>
                 </div>
               </div>

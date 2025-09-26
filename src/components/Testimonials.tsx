@@ -1,7 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Testimonials = () => {
+  const { t } = useLanguage();
+
   const testimonials = [
     {
       name: "राम कुमार शर्मा",
@@ -40,10 +43,10 @@ const Testimonials = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="font-display font-bold text-4xl lg:text-5xl mb-6 text-foreground">
-            Success Stories
+            {t('successStories')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real farmers sharing their experiences with Saubhagya platform
+            {t('successDesc')}
           </p>
         </div>
 
